@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IPet } from '../../models/pets.interface';
 
 @Component({
   selector: 'app-card-pet',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './card-pet.component.css'
 })
 export class CardPetComponent {
+
+
+ constructor(){
+
+ }
+
+ @Input() pet!: IPet;
 
 }

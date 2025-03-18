@@ -1,3 +1,12 @@
 <app-layout>
-  <p>pets works!</p>
+  <div class="container my-5">
+    <h1>Pets Cadastrados</h1>
+    <div class="pets-list my-4">
+      <div>
+        <div  class="row">
+          <app-card-pet *ngFor="let pet of listPets" class="col-12 my-3 col-md-3" [pet]="pet"></app-card-pet>
+        </div>
+      </div>
+    </div>
+  </div>
 </app-layout>

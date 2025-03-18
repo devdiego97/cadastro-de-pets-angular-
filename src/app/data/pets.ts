@@ -1,6 +1,6 @@
 import { IPet } from "../models/pets.interface";
 
-const pets: IPet[] = [
+export const pets: IPet[] = [
   {
     id: 1,
     name: "Max",

@@ -1,1 +1,8 @@
-<p>card-pet works!</p>
+<div class="card" style="width: 18rem;">
+  <img [src]="pet.photo" height="230px" class="card-img-top" alt="{{ pet.name }}">
+  <div class="card-body">
+    <h5 class="card-title">{{pet.name}}</h5>
+    <p class="card-text">{{pet.race}}</p>
+    <a href="#" class="btn btn-primary">detalhes</a>
+  </div>
+</div>
