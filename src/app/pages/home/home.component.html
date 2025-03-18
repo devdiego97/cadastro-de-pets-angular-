@@ -1,35 +1,51 @@
 <app-layout>
   <div class="container my-5">
-     <h3>Cadastre seu Pet</h3>
-     <p>Preencha os campos para cadastrar um novo pet</p>
-     <form class="my-4">
+    <h3>Cadastre seu Pet</h3>
+    <p>Preencha os campos para cadastrar um novo pet</p>
+    <form class="my-4" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Url da foto do pet</label>
-        <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
+        <input type="url" name="photo" formControlName="photo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div *ngIf="getFormControl('photo')?.invalid && getFormControl('photo')?.touched" class="text-danger">
+          O campo URL da foto é obrigatório.
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <input type="text" name="name" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div *ngIf="getFormControl('name')?.invalid && getFormControl('name')?.touched" class="text-danger">
+          O campo Nome é obrigatório.
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Idade</label>
-        <input type="number" class="form-control" id="exampleInputPassword1">
+        <input type="number" name="age" formControlName="age" class="form-control" id="exampleInputPassword1">
+        <div *ngIf="getFormControl('age')?.invalid && getFormControl('age')?.touched" class="text-danger">
+          O campo Idade é obrigatório.
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Raça</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" name="race" formControlName="race" class="form-control" id="exampleInputPassword1">
+        <div *ngIf="getFormControl('race')?.invalid && getFormControl('race')?.touched" class="text-danger">
+          O campo Raça é obrigatório.
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Cor</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" name="color" formControlName="color" class="form-control" id="exampleInputPassword1">
+        <div *ngIf="getFormControl('color')?.invalid && getFormControl('color')?.touched" class="text-danger">
+          O campo Cor é obrigatório.
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Sexo</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" name="sex" formControlName="sex" class="form-control" id="exampleInputPassword1">
+        <div *ngIf="getFormControl('sex')?.invalid && getFormControl('sex')?.touched" class="text-danger">
+          O campo Sexo é obrigatório.
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Enviar</button>
     </form>
   </div>
 </app-layout>
